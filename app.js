@@ -53,13 +53,12 @@ app.post("/", function(req, res) {
       console.log(JSON.parse(data));
     })
   })
-  request.write(jsonData);
-  request.end();
+
 
 });
 
 app.post("/failure" ,function(req,res){
-  res.redirect("/")
+  res.redirect("/");
 });
 
 
