@@ -35,22 +35,32 @@ app.post("/", function(req, res) {
 
   const jsonData = JSON.stringify(data);
 
-  const url="https://us7.api.mailchimp.com/3.0/lists/c063481542"
+  const url = "https://us7.api.mailchimp.com/3.0/lists/c063481542"
 
-  const options={
-    method:"POST",
-    auth:"theKGM:35fac5f1446ff4ee51818b7b3e999afd-us7"
+  const options = {
+    method: "POST",
+    auth: "theKGM:35fac5f1446ff4ee51818b7b3e999afd-us7"
   }
 
   const request = https.request(url, options, function(response) {
-    response.on("data",function(data){
-    console.log(JSON.parse(data));
+    if (response.statusCode === 200) {
+        res.sendFile(__dirname + "/success.html");
+
+    } else {
+      res.sendFile(__dirname + "/failure.html");
+    }
+    response.on("data", function(data) {
+      console.log(JSON.parse(data));
     })
   })
   request.write(jsonData);
   request.end();
 
 });
+
+app.post("/failure" ,function(req,res){
+  res.redirect("/")
+})
 
 
 app.listen(3000, function() {
