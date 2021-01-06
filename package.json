@@ -16,9 +16,9 @@
     "node": "14.15.3"
   },
   "bugs": {
-    "url": "https://github.com/bestie06/Signup-Web-/issues"
+    "url": "https://github.com/fatihkgm/Signup-Web-/issues"
   },
-  "homepage": "https://github.com/bestie06/Signup-Web-#readme",
+  "homepage": "https://github.com/fatihkgm/Signup-Web-#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
